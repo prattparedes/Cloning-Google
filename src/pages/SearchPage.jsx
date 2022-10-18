@@ -16,14 +16,14 @@ function SearchPage() {
   const [{ term }, dispatch] = useStateValue();
 
   //  LIVE API CALL
-  // const { data } = useGoogleSearch(term);
+  const { data } = useGoogleSearch(term);
 
-  const data = response;
+  // MOCK API CALL
+  // const data = response;
 
   // https://developers.google.com/custom-search/v1/using_rest
   // https://cse.google.com/cse/create/new
 
-  console.log(data);
   return (
     <div className="searchPage">
       <div className="searchPage__header">
@@ -93,8 +93,21 @@ function SearchPage() {
             {data?.searchInformation.searchTime}s) for {term}
           </p>
           {data?.items.map((item) => (
-            <div className="searchPage__result">
-              <a href={item.link}>{item.displayLink} ▼</a>
+            <div className="searchPage__result" key={item.id}>
+              <a id="searchPage__resultLink" href={item.link}>
+                {item.pagemap?.cse_image?.length > 0 &&
+                  item.pagemap?.cse_image[0]?.src && (
+                    <img
+                      className="searchPage__resultImage"
+                      src={
+                        item.pagemap?.cse_image?.length > 0 &&
+                        item.pagemap?.cse_image[0]?.src
+                      }
+                      alt=""
+                    />
+                  )}
+                {item.displayLink} <span>▼</span>
+              </a>
               <a href={item.link} className="searchPage__resultTitle">
                 <h2>{item.title}</h2>
               </a>
