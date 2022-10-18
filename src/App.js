@@ -1,6 +1,7 @@
 import React from "react";
 import "./App.css";
 import Home from "./pages/Home";
+import SearchPage from "./pages/SearchPage"
 import {
   BrowserRouter as Router,
   Switch,
@@ -15,7 +16,7 @@ function App() {
       <Router>
         <Routes>
           <Route path="/" element={<Home /> } />
-          <Route path="/search" element={'This is the Search Page'} />
+          <Route path="/search" element={<SearchPage />} />
         </Routes>
       </Router>
     </div>

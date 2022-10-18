@@ -1,10 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import "./Home.css";
-import AppsIcon from '@mui/icons-material/Apps';
+import AppsIcon from "@mui/icons-material/Apps";
 import { Avatar } from "@mui/material";
 import Search from "../components/Search";
-
 
 function Home() {
   return (
@@ -22,10 +21,13 @@ function Home() {
         </div>
       </div>
       <div className="home__body">
-        <img src="https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_272x92dp.png" alt="" />
+        <img
+          src="https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_272x92dp.png"
+          alt=""
+        />
         <div className="home__input--container">
-        <Search />
-      </div>
+          <Search />
+        </div>
       </div>
     </div>
   );
